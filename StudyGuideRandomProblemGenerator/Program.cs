@@ -95,8 +95,8 @@ namespace StudyGuideRandomProblemGenerator
         {
             List<Chapter> chapters = new List<Chapter>();
 
-            string desktopDirectory = @"C:\Users\Kyle\Desktop\";
-            string fullPath = desktopDirectory + fileName;
+            string directory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\StudyGuideRandomProblemGenerator";
+            string fullPath = directory + fileName;
 
             string[] lines = File.ReadAllLines(fullPath);
             //StreamReader sr = File.OpenText(fullPath);
@@ -166,10 +166,10 @@ namespace StudyGuideRandomProblemGenerator
 
         static void SaveAsFile(List<Chapter> chapters)
         {
-            string desktopDirectory = @"C:\Users\Kyle\Desktop\";
+            string directory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\StudyGuideRandomProblemGenerator";
             Console.Write("Enter file to save: ");
             string fileName = Console.ReadLine();
-            string fullPath = desktopDirectory + fileName;
+            string fullPath = directory + fileName;
             string[] chapterInfo = getChaptersAsTextArray(chapters);
 
             File.WriteAllLines(fullPath, chapterInfo);
